@@ -1,0 +1,94 @@
+<div ng-controller="tabs" ng-init="get_receipt()" class="pages">
+	<!-- Page, "data-page" contains page name -->
+
+    <!-- for loader start -->
+    <md-progress-circular ng-show="loading" md-mode="indeterminate"></md-progress-circular>
+    <!-- for loader stop -->
+            
+                <!-- tab design -->
+            <!-- <div data-page="tabs" class="page toolbar-fixed navbar-fixed" data-page="tabs-animated"> -->
+            <ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height>
+      <md-tab md-stretch-tabs="yes" label="Home">
+        <md-content class="md-padding">
+          <div id="tab-1" class="page-content tab active">
+            <div class="content-block">
+		<div class="list-block inset">
+                    <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</div>
+            </div>
+	  </div>
+        </md-content>
+      </md-tab>
+      <md-tab md-stretch-tabs="yes" label="Receipe">
+        <md-content class="md-padding">
+            <div  id="tab-2" class="page-content tab">
+		<div class="content-block">
+                    <div class="row">
+                    <div class="col-sm-6">
+                    	<div class="row">
+                    		<div class="col-sm-12">
+                    			<img src="{{img_url}}" />
+                    		</div>
+                    	</div>
+                    	<div class="row">
+                    	<div class="col-sm-12">
+                    	<form>
+  							<div class="form-group">
+    							<label for="title">Title</label>
+    							<input ng-model="title" type="text" class="form-control" id="title">
+  							</div>
+  							<div class="form-group">
+    							<input ng-model="key" type="text" class="form-control hidden" id="key">
+  							</div>
+  							<div class="form-group">
+    							<label for="description">Description:</label>
+    							<textarea class="form-control" rows="5" ng-model="description" id="description"></textarea>
+  							</div>
+  							<div class="form-group">
+    							<label for="pwd">Image URL:</label>
+    							<input type="text" ng-model="img_url" class="form-control" id="img_url">
+  							</div>
+  							<button ng-click="form_submit(title, description, img_url, key)" type="submit" class="btn btn-default">Submit</button>
+						</form>
+                    	</div>
+                    	</div>
+                    </div>
+                    <div class="col-sm-6">
+                    	<div class="row">
+                    	<div class="col-sm-12">
+                    		<ul class="list-group pd10">
+                    				<li class='list-group-item' ng-repeat="single_value in receipts">
+                    						<span ng-click="get_val(single_value.key)"><h6>{{single_value.title}}</h6> {{single_value.description}}</span>
+                    						<span ng-click="del_element(single_value.key)" class="pull-right btn btn-xs btn-default">Delete</span>
+                    				</li>
+                    		</ul>
+                    	</div>
+                    	</div>
+                    </div>
+                    </div>
+		</div>
+            </div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</ng-cloak>
+           
+<!--  Menu Section  -->
+    <md-sidenav class="md-sidenav-left" md-component-id="left"
+                md-disable-backdrop md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <!--h1 class="md-toolbar-tools">Disabled Backdrop</h1-->
+      </md-toolbar>
+
+
+
+    </md-sidenav>
+  
+            <!-- tab design -->
+
+	<!-- </div> -->
+</div>
