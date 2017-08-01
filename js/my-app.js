@@ -11,9 +11,11 @@ app.controller("tabs",function($scope)
 {
     $scope.get_receipt = function()
     {
+        $scope.loading = true;
     	$scope.receipts = [];
     	recipes.on("child_added", function(snap)
 	            {
+	                $scope.loading = false;
 		            var value = snap.val();
 		            var key = snap.key();
 		            var main_desc = value.description;
